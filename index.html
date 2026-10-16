@@ -60,7 +60,7 @@ else if(/matcha|pandan|blue coconut/.test(n+" "+d)) key="matcha";
 else if(/strawberry|mango|pomelo|grapefruit|lemon|orange|fruit|grape/.test(n+" "+d)) key="fruit";
 else if(/tea|oolong|jasmine/.test(n+" "+d)) key="tea";
 const pool=photos[key];
-return 'url("'+pool[(i*3+Math.floor(i/2))%pool.length]+'")';
+return "url('"+pool[(i*3+Math.floor(i/2))%pool.length]+"')";
 }
 
 const cats=["All","Classic","Cafe Latte","Featured","Non-Coffee","Tea & Tea Latte","Coffee-Tea Latte","Frappe","Fruit Tea","Fruit Coffee"];let active="All",cart=[],chosen=-1,opts={};

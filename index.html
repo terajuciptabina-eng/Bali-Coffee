@@ -18,13 +18,57 @@ const P=[
 ["Americano","Classic",7.9,"Specialty medium roast / gold dark roast","coffee"],["Espresso","Classic",7.9,"Specialty medium roast / gold dark roast","coffee"],["Mocha","Classic",12.9,"Rich chocolate with coffee","coffee"],["Flat White","Classic",10.9,"Smooth espresso and milk","coffee"],["Cappuccino","Classic",11.9,"Espresso with airy milk foam","coffee"],["Crema Latte","Classic",10.9,"Creamy latte","coffee"],["Cafe Latte","Cafe Latte",10.9,"A timeless espresso and milk favourite","coffee"],["Flavoured Latte","Cafe Latte",12.9,"Vanilla / brown sugar / sea salt caramel / toffee hazelnut","coffee"],["Oat Latte","Cafe Latte",13.9,"Original / brown sugar / toffee hazelnut / sea salt caramel","coffee"],["Coconut Milk Latte","Featured",13.9,"Original / red bean","coffee"],["Coconut Milk Dirty","Featured",13.9,"Coconut milk with bold coffee","coffee"],["Soy Milk Latte","Featured",13.9,"Smooth soy milk latte","coffee"],["Pandan Coconut Latte","Featured",13.9,"Pandan and coconut signature","matcha"],["Pampas Blue Coconut Latte","Featured",13.9,"Colourful coconut signature","matcha"],["Stardust Crema Latte","Featured",13.9,"Signature creamy iced latte","coffee"],["Stardust Oat Latte","Featured",13.9,"Oat milk signature latte","coffee"],["Cloud Mousse Pandan Crema Latte","Featured",13.9,"Pandan crema with cloud mousse","matcha"],["Cloud Mousse Latte","Featured",13.9,"Blue coco / matcha","matcha"],["Cloud Mousse Opera Latte","Featured",13.9,"Signature cloud mousse latte","coffee"],["Cloud Mousse Soy Milk Latte","Featured",13.9,"Soy milk and cloud mousse","coffee"],["Strawberry Crema Latte","Featured",13.9,"Strawberry with creamy latte","fruit"],["Cloud Mousse Strawberry Soy Milk Latte","Featured",13.9,"Strawberry, soy milk and cloud mousse","fruit"],["Choco","Non-Coffee",12.9,"Chocolate drink","coffee"],["Traditional Brown Sugar Oat Milk","Non-Coffee",13.9,"Brown sugar and oat milk","coffee"],["Milk","Non-Coffee",11.9,"Milk drink","coffee"],["Mango Pomelo Delight","Non-Coffee",11.9,"Mango and pomelo refreshment","fruit"],["Strawberry Milk","Non-Coffee",11.9,"Strawberry milk","fruit"],["Matcha Coffee Latte","Tea & Tea Latte",13.9,"Matcha meets espresso","matcha"],["Matcha Coconut Latte","Tea & Tea Latte",13.9,"Matcha and coconut milk","matcha"],["Honey Jasmine Milk Tea","Tea & Tea Latte",11.9,"Jasmine tea, honey and milk","fruit"],["Matcha Latte","Tea & Tea Latte",13.9,"Milk / oat milk","matcha"],["Matcha Red Bean Latte","Tea & Tea Latte",13.9,"Matcha with red bean","matcha"],["Coconut Milk Tea","Tea & Tea Latte",11.9,"Pampas / oolong","coffee"],["Oolong Soy Milk Tea","Tea & Tea Latte",11.9,"Oolong tea and soy milk","coffee"],["Red Bean Milk Tea","Tea & Tea Latte",11.9,"Milk tea with red bean","coffee"],["Pampas Crema Jasmine Latte","Coffee-Tea Latte",13.9,"Jasmine tea latte with crema","matcha"],["Toffee Oolong Yuenyeung Latte","Coffee-Tea Latte",13.9,"Toffee and oolong coffee-tea blend","coffee"],["Matcha Grapefruit Frappe","Frappe",14.9,"Blended matcha and grapefruit","matcha"],["Pandan Mango Coco Frappe","Frappe",14.9,"Pandan, mango and coconut","matcha"],["Mocha Frappe","Frappe",14.9,"Blended mocha","coffee"],["Mango Coconut Frappe","Frappe",14.9,"Mango and coconut blended drink","fruit"],["Orange Jasmine Frappe","Frappe",14.9,"Orange and jasmine blended drink","fruit"],["Chocolate Frappe","Frappe",14.9,"Chocolate blended drink","coffee"],["Grape Oat Frappe","Frappe",14.9,"Grape and oat blended drink","fruit"],["White Grapefruit Jasmine Frappe","Frappe",14.9,"White grapefruit and jasmine","fruit"],["Matcha Jasmine Frappe","Frappe",14.9,"Matcha and jasmine blended drink","matcha"],["Pampas Blue Coconut Frappe","Frappe",14.9,"Blue coconut blended drink","matcha"],["Honey Grapefruit Lemon Tea","Fruit Tea",10.9,"Honey, grapefruit and lemon tea","fruit"],["Lemon Jasmine Iced Tea","Fruit Tea",10.9,"Jasmine tea with lemon","fruit"],["Iced Shaken Fruit Tea","Fruit Tea",10.9,"Orange / white grapefruit / apricot / apple","fruit"],["Honey Lemon Sparkling Cold Brew","Fruit Coffee",9.9,"Cold brew with honey lemon sparkle","fruit"],["Lemon Americano","Fruit Coffee",9.9,"Americano with lemon","fruit"],["Lemon Sparkling Cold Brew","Fruit Coffee",9.9,"Cold brew with lemon sparkle","fruit"],["Fruity Americano","Fruit Coffee",9.9,"Orange / white grapefruit / apricot / apple","fruit"],["Fruity Sparkling Cold Brew","Fruit Coffee",9.9,"Orange / white grapefruit / apricot / apple","fruit"],["Mango Coconut Latte","Fruit Coffee",13.9,"Mango and coconut latte","fruit"]];
 
 const photos={
-coffee:["1509042239860-f550ce710b93","1495474472287-4d71bcdd2085","1461023058943-07fcbe16d735","1442512595331-e89e73853f31","1511920170033-f8396924c348","1517701604599-bb29b565090c","1497514540248-2ae870e3e9e9","1501339847302-ac426a4a7cbb"],
-matcha:["1515823064-d6e0c04616a7","1556679343-c7306c1976bc","1571934811356-5cc061b6821f","1544787219-7f47ccb76574","1513558161293-cdaf765edfd7"],
-fruit:["1546173159-315724a31696","1513558161293-cdaf765edfd7","1558857563-b371033873b8","1572490122747-3968b75cc699","1544145945-f90425340c7e","1534353473418-4a001d2b6c00","1551024709-8f23befc6f87","1547595628-c61a29f496f0"],
-frappe:["1572490122747-3968b75cc699","1558857563-b371033873b8","1544145945-f90425340c7e","1534353473418-4a001d2b6c00","1551024709-8f23befc6f87"],
-tea:["1556679343-c7306c1976bc","1571934811356-5cc061b6821f","1544787219-7f47ccb76574","1513558161293-cdaf765edfd7","1547595628-c61a29f496f0"]
+coffee:[
+"1509042239860-f550ce710b93",
+"1461023058943-07fcbe16d735",
+"1511920170033-f8396924c348",
+"1517701604599-bb29b565090c",
+"1497514540248-2ae870e3e9e9"
+],
+matcha:[
+"1515823064-d6e0c04616a7",
+"1556679343-c7306c1976bc",
+"1571934811356-5cc061b6821f"
+],
+fruit:[
+"1546173159-315724a31696",
+"1513558161293-cdaf765edfd7",
+"1544145945-f90425340c7e",
+"1534353473418-4a001d2b6c00"
+],
+frappe:[
+"1572490122747-3968b75cc699",
+"1558857563-b371033873b8",
+"1544145945-f90425340c7e"
+],
+tea:[
+"1556679343-c7306c1976bc",
+"1571934811356-5cc061b6821f",
+"1544787219-7f47ccb76574"
+]
 };
 function photoUrl(id){return "https://images.unsplash.com/photo-"+id+"?auto=format&fit=crop&w=700&q=85"}
+function imageKey(p){
+const n=p[0].toLowerCase(),d=p[3].toLowerCase(),c=p[1].toLowerCase();
+if(/frappe/.test(c)) return "frappe";
+if(/matcha|pandan|blue coconut/.test(n+" "+d)) return "matcha";
+if(/strawberry|mango|pomelo|grapefruit|lemon|orange|fruit|grape/.test(n+" "+d)) return "fruit";
+if(/tea|oolong|jasmine/.test(n+" "+d)) return "tea";
+return "coffee";
+}
+function imageFor(p,i){
+const n=p[0].toLowerCase(),key=imageKey(p);
+const specific={
+"americano":0,"espresso":1,"mocha":2,"flat white":3,"cappuccino":4,
+"crema latte":0,"cafe latte":4,"flavoured latte":0,"oat latte":4,
+"coconut milk latte":0,"coconut milk dirty":1,"soy milk latte":4,
+"matcha coffee latte":0,"matcha coconut latte":1,"matcha latte":0,
+"matcha red bean latte":1,"strawberry milk":0,"mango pomelo delight":0
+};
+const pool=photos[key];
+if(Object.prototype.hasOwnProperty.call(specific,n) && key==="coffee") return photoUrl(pool[specific[n]%pool.length]);
+return photoUrl(pool[(i*3+Math.floor(i/2))%pool.length]);
+}
 function imageKey(p){
 const n=p[0].toLowerCase(),d=p[3].toLowerCase(),c=p[1].toLowerCase();
 if(/frappe/.test(c)) return "frappe";

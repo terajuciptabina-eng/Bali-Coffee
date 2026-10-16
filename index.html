@@ -43,6 +43,9 @@ tea:[
 "1556679343-c7306c1976bc",
 "1571934811356-5cc061b6821f",
 "1544787219-7f47ccb76574"
+],
+blue:[
+"1764403713769-bca34ca96d1a"
 ]
 };
 function photoUrl(id){return "https://images.unsplash.com/photo-"+id+"?auto=format&fit=crop&w=700&q=85"}
@@ -57,6 +60,7 @@ function imageKey(p){
 }
 function imageFor(p,i){
  const name=p[0].toLowerCase();
+ if(/pampas blue coconut/.test(name)) return photoUrl(photos.blue[0]).replace("w=700&q=85","w=900&q=90");
  const specific={
   "americano":"1461023058943-07fcbe16d735",
   "espresso":"1509042239860-f550ce710b93",

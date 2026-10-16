@@ -21,7 +21,6 @@ const photos={
 coffee:[
 "1509042239860-f550ce710b93",
 "1461023058943-07fcbe16d735",
-"1517701604599-bb29b565090c",
 "1517701604599-bb29b565090c"
 ],
 matcha:[
@@ -50,22 +49,14 @@ function photoUrl(id){return "https://images.unsplash.com/photo-"+id+"?auto=form
 function imageKey(p){
 const n=p[0].toLowerCase(),d=p[3].toLowerCase(),c=p[1].toLowerCase();
 if(/frappe/.test(c)) return "frappe";
-if(/matcha|pandan|blue coconut/.test(n+" "+d)) return "matcha";
+if(/matcha/.test(n+" "+d)) return "matcha";
 if(/strawberry|mango|pomelo|grapefruit|lemon|orange|fruit|grape/.test(n+" "+d)) return "fruit";
 if(/tea|oolong|jasmine/.test(n+" "+d)) return "tea";
 return "coffee";
 }
 function imageFor(p,i){
-const n=p[0].toLowerCase(),key=imageKey(p);
-const specific={
-"americano":0,"espresso":1,"mocha":2,"flat white":3,"cappuccino":4,
-"crema latte":0,"cafe latte":4,"flavoured latte":0,"oat latte":4,
-"coconut milk latte":0,"coconut milk dirty":1,"soy milk latte":4,
-"matcha coffee latte":0,"matcha latte":0,
-"matcha red bean latte":1
-};
+const key=imageKey(p);
 const pool=photos[key];
-if(Object.prototype.hasOwnProperty.call(specific,n) && key==="coffee") return photoUrl(pool[specific[n]%pool.length]);
 return photoUrl(pool[(i*3+Math.floor(i/2))%pool.length]);
 }
 function imageError(img,i){

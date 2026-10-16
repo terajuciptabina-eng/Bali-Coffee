@@ -49,17 +49,46 @@ function photoUrl(id){return "https://images.unsplash.com/photo-"+id+"?auto=form
 function imageKey(p){
  const n=p[0].toLowerCase(),d=p[3].toLowerCase(),cat=p[1].toLowerCase(),all=n+" "+d+" "+cat;
  if(/frappe/.test(all)) return "frappe";
- if(/matcha|pandan|blue coconut/.test(all)) return "matcha";
- if(/fruit|mango|pomelo|strawberry|lemon|grapefruit|orange|apricot|apple|sparkling cold brew|grape/.test(all)) return "fruit";
+ if(/pampas blue coconut/.test(n)) return "blue";
+ if(/matcha|pandan/.test(all)) return "matcha";
  if(/tea|oolong|jasmine/.test(all)) return "tea";
+ if(/fruit|mango|pomelo|strawberry|lemon|grapefruit|orange|apricot|apple|sparkling cold brew|grape/.test(all)) return "fruit";
  return "coffee";
 }
 function imageFor(p,i){
- const pool=photos[imageKey(p)]||photos.coffee;
  const name=p[0].toLowerCase();
- const exact={"espresso":0,"americano":1,"cappuccino":2,"flat white":2,"mocha":1,"cafe latte":2,"flavoured latte":0,"oat latte":1,"coconut milk latte":2,"coconut milk dirty":0,"soy milk latte":1,"pandan coconut latte":0,"pampas blue coconut latte":1,"matcha latte":0,"matcha red bean latte":1,"honey jasmine milk tea":0,"coconut milk tea":1,"oolong soy milk tea":2,"red bean milk tea":0,"mango pomelo delight":0,"mango coconut latte":1,"strawberry milk":2,"lemon jasmine iced tea":0,"honey grapefruit lemon tea":1,"chocolate frappe":0,"mocha frappe":1};
- const k=exact[name]===undefined?(i*2+Math.floor(i/3))%pool.length:exact[name];
- return photoUrl(pool[k%pool.length]);
+ const specific={
+  "americano":"1461023058943-07fcbe16d735",
+  "espresso":"1509042239860-f550ce710b93",
+  "mocha":"1572490122747-3968b75cc699",
+  "flat white":"1517701604599-bb29b565090c",
+  "cappuccino":"1511920170033-f8396924c348",
+  "cafe latte":"1517701604599-bb29b565090c",
+  "flavoured latte":"1511920170033-f8396924c348",
+  "oat latte":"1511920170033-f8396924c348",
+  "coconut milk latte":"1461023058943-07fcbe16d735",
+  "coconut milk dirty":"1461023058943-07fcbe16d735",
+  "soy milk latte":"1517701604599-bb29b565090c",
+  "stardust crema latte":"1461023058943-07fcbe16d735",
+  "stardust oat latte":"1511920170033-f8396924c348",
+  "pandan coconut latte":"1515823064-d6e0c04616a7",
+  "pampas blue coconut latte":"1764403713769-bca34ca96d1a",
+  "pampas blue coconut frappe":"1764403713769-bca34ca96d1a",
+  "matcha latte":"1515823064-d6e0c04616a7",
+  "matcha red bean latte":"1556679343-c7306c1976bc",
+  "honey jasmine milk tea":"1544787219-7f47ccb76574",
+  "coconut milk tea":"1544787219-7f47ccb76574",
+  "oolong soy milk tea":"1571934811356-5cc061b6821f",
+  "red bean milk tea":"1544787219-7f47ccb76574",
+  "lemon jasmine iced tea":"1544787219-7f47ccb76574",
+  "honey grapefruit lemon tea":"1556679343-c7306c1976bc",
+  "chocolate frappe":"1572490122747-3968b75cc699",
+  "mocha frappe":"1572490122747-3968b75cc699"
+ };
+ if(specific[name]) return "https://images.unsplash.com/photo-"+specific[name]+"?auto=format&fit=crop&w=900&q=90";
+ const pool=photos[imageKey(p)]||photos.coffee;
+ const hash=[...name].reduce((sum,ch)=>sum+ch.charCodeAt(0),0);
+ return photoUrl(pool[hash%pool.length]);
 }
 function imageError(img,i){
  const pool=photos[imageKey(P[i])]||photos.coffee;

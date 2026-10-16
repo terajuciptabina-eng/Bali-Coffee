@@ -47,29 +47,36 @@ tea:[
 };
 function photoUrl(id){return "https://images.unsplash.com/photo-"+id+"?auto=format&fit=crop&w=700&q=85"}
 function spritePosition(p){
-const n=p[0].toLowerCase(),d=p[3].toLowerCase(),c=p[1].toLowerCase(),all=n+" "+d+" "+c;
-const exact={"espresso":0,"americano":1,"cappuccino":2,"flat white":3,"mocha":4,"oat latte":5,"coconut milk latte":6,"coconut milk dirty":6,"soy milk latte":5,"pandan coconut latte":7,"pampas blue coconut latte":8,"matcha latte":9,"matcha red bean latte":9,"honey jasmine milk tea":10,"coconut milk tea":11,"oolong soy milk tea":11,"red bean milk tea":10,"mango pomelo delight":12,"mango coconut latte":12,"strawberry milk":13,"lemon jasmine iced tea":14,"honey grapefruit lemon tea":14,"chocolate frappe":15,"mocha frappe":4};
-let idx=exact[n];
-if(idx===undefined){
-if(/pampas blue coconut/.test(n)) idx=8;
-else if(/matcha/.test(all)) idx=9;
-else if(/pandan/.test(all)) idx=7;
-else if(/strawberry/.test(all)) idx=13;
-else if(/mango|pomelo/.test(all)) idx=12;
-else if(/lemon|grapefruit|orange|fruit tea|sparkling cold brew|fruity/.test(all)) idx=14;
-else if(/frappe/.test(n+" "+c)){if(/choco|mocha/.test(all))idx=15;else if(/mango|orange|grape/.test(all))idx=12;else if(/blue coconut/.test(all))idx=8;else idx=9;}
-else if(/oolong/.test(all)) idx=11;
-else if(/jasmine|milk tea|tea latte/.test(all)) idx=10;
-else if(/mocha|choco/.test(all)) idx=4;
-else if(/coconut/.test(all)) idx=6;
-else if(/oat|soy/.test(all)) idx=5;
-else if(/flat white/.test(all)) idx=3;
-else if(/cappuccino/.test(all)) idx=2;
-else if(/espresso/.test(all)) idx=0;
-else idx=1;
-}
-const col=idx%4,row=Math.floor(idx/4);
-return (col*100/3).toFixed(3)+"% "+(row*100/3).toFixed(3)+"%";
+ const n=p[0].toLowerCase(),d=p[3].toLowerCase(),c=p[1].toLowerCase(),all=n+" "+d+" "+c;
+ // Positions match the actual 4x4 product-photo sprite, left-to-right and top-to-bottom.
+ const exact={
+ "americano":0,"espresso":0,"cappuccino":2,"flat white":3,"mocha":4,
+ "cafe latte":6,"flavoured latte":6,"oat latte":6,"coconut milk latte":6,
+ "coconut milk dirty":5,"soy milk latte":6,"stardust crema latte":6,"stardust oat latte":6,
+ "pandan coconut latte":7,"pampas blue coconut latte":8,"cloud mousse pandan crema latte":7,
+ "matcha latte":9,"matcha red bean latte":9,"matcha coconut latte":9,
+ "honey jasmine milk tea":11,"coconut milk tea":11,"oolong soy milk tea":11,"red bean milk tea":11,
+ "mango pomelo delight":12,"mango coconut latte":12,"strawberry milk":13,
+ "lemon jasmine iced tea":14,"honey grapefruit lemon tea":14,"chocolate frappe":15,"mocha frappe":15
+ };
+ let idx=exact[n];
+ if(idx===undefined){
+  if(/pampas blue coconut/.test(n)) idx=8;
+  else if(/matcha/.test(all)) idx=9;
+  else if(/pandan/.test(all)) idx=7;
+  else if(/strawberry/.test(all)) idx=13;
+  else if(/mango|pomelo|grape oat frappe/.test(all)) idx=12;
+  else if(/lemon|grapefruit|orange|fruit tea|sparkling cold brew|fruity|jasmine|oolong|milk tea|tea latte/.test(all)) idx=14;
+  else if(/frappe/.test(n+" "+c)){if(/choco|mocha/.test(all))idx=15;else if(/mango|orange|grape/.test(all))idx=12;else if(/blue coconut/.test(all))idx=8;else idx=9;}
+  else if(/mocha|choco/.test(all)) idx=4;
+  else if(/coconut dirty/.test(all)) idx=5;
+  else if(/coconut|oat|soy|latte|crema/.test(all)) idx=6;
+  else if(/cappuccino/.test(all)) idx=2;
+  else if(/flat white/.test(all)) idx=3;
+  else idx=0;
+ }
+ const col=idx%4,row=Math.floor(idx/4);
+ return (col*100/3).toFixed(3)+"% "+(row*100/3).toFixed(3)+"%";
 }
 function imageError(img,i){
 const pool=photos[imageKey(P[i])];
